@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 export default async function (req, res) {
   try {
-    const { name, bio, phone, twitter, instagram, facebook } = req.body
+    const { name, bio, phone, twitter, instagram, facebook, slug } = req.body
 
     const session = await getSession({ req })
 
@@ -25,13 +25,14 @@ export default async function (req, res) {
         twitter,
         instagram,
         facebook,
-        user: { connect: { email: session.user.email } },
+        slug,
       },
     })
 
     return res.status(200).json(profile)
     console.log(profile)
   } catch (error) {
+    console.log(error)
     return res.status(500).send(error)
   }
 }

@@ -36,7 +36,7 @@ export default function Home({ session, profile }) {
                 </button>
               </div>
             )}
-            {profile && editing && <EditProfile profile={profile} />}
+            {profile && editing && <EditProfile profile={profile} setEditing={setEditing} />}
           </>
         )}
       </>
@@ -62,6 +62,7 @@ export const getServerSideProps = async (context) => {
       name: true,
       email: true,
       bio: true,
+      slug: true,
       phone: true,
       facebook: true,
       instagram: true,

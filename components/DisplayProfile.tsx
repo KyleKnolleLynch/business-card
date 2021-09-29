@@ -8,11 +8,12 @@ export default function DisplayProfile({ profile }) {
       </div>
 
       <ul>
-        <li>{profile.email}</li>
-        <li>{profile.phone}</li>
-        <li>{profile.twitter}</li>
-        <li>{profile.instagram}</li>
-        <li>{profile.facebook}</li>
+        <li><span className='font-bold'>Email:</span> {profile.email}</li>
+        <li><span className='font-bold'>Slug:</span> {profile.slug}</li>
+        <li><span className='font-bold'>Phone:</span> {profile.phone}</li>
+        <li><span className='font-bold'>Twitter:</span> {profile.twitter}</li>
+        <li><span className='font-bold'>Instagram:</span> {profile.instagram}</li>
+        <li><span className='font-bold'>Facebook:</span> {profile.facebook}</li>
       </ul>
     </div>
   )

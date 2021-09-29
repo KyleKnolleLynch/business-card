@@ -34,6 +34,13 @@ export default function CreateProfile() {
           placeholder="Enter your name"
           {...register('name', { required: true })}
         />
+        <input
+          type="text"
+          name="slug"
+          className="w-full bg-gray-100 text-gray-900 rounded-md h-12 pl-2 mt-3"
+          placeholder="Enter your unique profile URL"
+          {...register('slug', { required: true })}
+        />
         <textarea
           className="w-full bg-gray-100 text-gray-900 rounded-md pl-2 mt-3"
           placeholder="A little bit about you"

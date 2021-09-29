@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 
-export default function EditProfile({ profile }) {
+export default function EditProfile({ profile, setEditing }) {
   const { register, handleSubmit } = useForm({ defaultValues: profile })
   const router = useRouter()
 
@@ -33,6 +33,13 @@ export default function EditProfile({ profile }) {
           className="w-full bg-gray-100 text-gray-900 rounded-md h-12 pl-2 mt-3"
           placeholder="Enter your name"
           {...register('name', { required: true })}
+        />
+        <input
+          type="text"
+          name="slug"
+          className="w-full bg-gray-100 text-gray-900 rounded-md h-12 pl-2 mt-3"
+          placeholder="Enter your unique profile URL"
+          {...register('slug', { required: true })}
         />
         <textarea
           className="w-full bg-gray-100 text-gray-900 rounded-md pl-2 mt-3"
@@ -74,6 +81,7 @@ export default function EditProfile({ profile }) {
           Edit Profile
         </button>
       </form>
+      <button onClick={() => setEditing(false)} className="bg-yellow-900 text-white rounded-md py-2 px-4 mt-4 hover:bg-yellow-800">Cancel</button>
     </div>
   )
 }
