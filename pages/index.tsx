@@ -16,15 +16,15 @@ export default function Home({ session, profile }) {
       </Head>
       <>
         {!session && (
-          <>
+          <div className='p-2'>
             Not signed in <br />
-            <button onClick={() => signIn()}>Sign in</button>
-          </>
+            <button onClick={() => signIn()} className='bg-indigo-600 text-white py-1 px-3 rounded-md hover:bg-indigo-500 mt-1'>Sign in</button>
+          </div>
         )}
         {session && (
-          <>
+          <div className='p-2'>
             Signed in as {session.user.email} <br />
-            <button onClick={() => signOut()}>Sign out</button>
+            <button onClick={() => signOut()} className='bg-indigo-600 text-white py-1 px-3 rounded-md hover:bg-indigo-500 mt-1 mb-3'>Sign out</button>
             {!profile && <CreateProfile />}
             {profile && !editing && (
               <div className="flex flex-col justify-center">
@@ -37,7 +37,7 @@ export default function Home({ session, profile }) {
               </div>
             )}
             {profile && editing && <EditProfile profile={profile} setEditing={setEditing} />}
-          </>
+          </div>
         )}
       </>
     </div>
